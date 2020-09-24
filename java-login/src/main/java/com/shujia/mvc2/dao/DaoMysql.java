@@ -18,6 +18,9 @@ public class DaoMysql implements Dao{
     private static   Connection con;
 
     static {
+
+        System.out.println("mysql数据库");
+
         //1、加载驱动
 
         try {

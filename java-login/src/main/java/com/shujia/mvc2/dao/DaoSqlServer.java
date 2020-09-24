@@ -18,6 +18,9 @@ public class DaoSqlServer implements Dao{
     private static   Connection con;
 
     static {
+
+        System.out.println("sqlserver数据库");
+
         //1、加载驱动
 
         try {

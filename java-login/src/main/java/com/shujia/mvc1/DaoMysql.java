@@ -6,7 +6,7 @@ import java.sql.*;
  * 持久层，和数据库打交道
  *
  */
-public class Dao {
+public class DaoMysql {
 
     /**
      * 通过用户名查询用户
@@ -68,6 +68,31 @@ public class Dao {
         return user;
     }
 
+
+    /**
+     * 插入一条数据
+     *
+     * 插入成功返回true
+     * 插入失败返回false
+     */
+    public Boolean inserUser(User user){
+        try {
+            PreparedStatement stat = con.prepareStatement("insert into t_user(username,password) values(?,?)");
+
+            stat.setString(1,user.getUsername());
+            stat.setString(2,user.getPassword());
+
+            int i = stat.executeUpdate();
+            if (i==1){
+                return true;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
 
 
 }

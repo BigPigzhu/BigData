@@ -1,13 +1,25 @@
-package com.shujia.mvc1;
+package com.shujia.mvc2;
+
+import com.shujia.mvc2.dao.DaoMysql;
+import com.shujia.mvc2.dao.DaoSqlServer;
+import com.shujia.mvc2.service.ServiceImpl;
 
 import java.util.Scanner;
 
-public class Test {
+public class TestLogin {
     public static void main(String[] args) {
 
 
+        //数据库持久层对象
+        DaoMysql daoMysql = new DaoMysql();
+
+        DaoSqlServer daoSqlServer = new DaoSqlServer();
+
+        //业务层对象
+        ServiceImpl service = new ServiceImpl(daoSqlServer);
+
         //用户和控制层交互
-        Controller controller = new Controller();
+        Controller controller = new Controller(service);
 
         //登录
         Scanner scanner = new Scanner(System.in);

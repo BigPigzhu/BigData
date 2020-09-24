@@ -1,13 +1,26 @@
-package com.shujia.mvc1;
+package com.shujia.mvc2.service;
 
+
+import com.shujia.mvc2.User;
+import com.shujia.mvc2.dao.Dao;
 
 /**
  * 业务层： 编写约为代码
  */
 
-public class Service {
+public class ServiceImpl implements Service{
 
-    private DaoSqlServer dao = new DaoSqlServer();
+    /**
+     * 多态
+     *
+     * 父类的引用指向子类的对象
+     *
+     */
+    private Dao dao;
+
+    public ServiceImpl(Dao dao) {
+        this.dao = dao;
+    }
 
     public String login(String username, String password) {
 

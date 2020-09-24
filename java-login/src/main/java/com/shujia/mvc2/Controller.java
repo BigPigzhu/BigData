@@ -1,5 +1,7 @@
-package com.shujia.mvc1;
+package com.shujia.mvc2;
 
+
+import com.shujia.mvc2.service.Service;
 
 /**
  * 控制层   ； 和用户交互
@@ -7,9 +9,14 @@ package com.shujia.mvc1;
  */
 public class Controller {
 
-    private Service service = new Service();
+    //  多态   父类的引用指向子类的对象
+    private Service service ;
 
-    public String login(String username,String password){
+    public Controller(Service service) {
+        this.service = service;
+    }
+
+    public String login(String username, String password){
 
         //调度业务层登录的方法
         String login = service.login(username, password);

@@ -11,7 +11,7 @@ public class JDBCUtil {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://master:3306/user", "root", "123456");
+            con = DriverManager.getConnection("jdbc:mysql://master:3306/user?useUnicode=true&characterEncoding=utf-8", "root", "123456");
 
         } catch (Exception e) {
             e.printStackTrace();

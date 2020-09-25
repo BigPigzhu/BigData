@@ -2,7 +2,6 @@ package com.shujia.service.impl;
 
 import com.shujia.bean.User;
 import com.shujia.dao.UserDao;
-import com.shujia.dao.impl.UserDaoImpl;
 import com.shujia.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

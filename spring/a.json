@@ -1,0 +1,113 @@
+{
+  "resultcode": "200",
+  "reason": "successed!",
+  "result": {
+    "sk": {
+      "temp": "25",
+      "wind_direction": "东风",
+      "wind_strength": "2级",
+      "humidity": "58%",
+      "time": "13:59"
+    },
+    "today": {
+      "temperature": "17℃~27℃",
+      "weather": "多云",
+      "weather_id": {
+        "fa": "01",
+        "fb": "01"
+      },
+      "wind": "东风微风",
+      "week": "星期五",
+      "city": "合肥",
+      "date_y": "2020年09月25日",
+      "dressing_index": "热",
+      "dressing_advice": "天气热，建议着短裙、短裤、短薄外套、T恤等夏季服装。",
+      "uv_index": "弱",
+      "comfort_index": "",
+      "wash_index": "较适宜",
+      "travel_index": "较适宜",
+      "exercise_index": "较适宜",
+      "drying_index": ""
+    },
+    "future": {
+      "day_20200925": {
+        "temperature": "17℃~27℃",
+        "weather": "多云",
+        "weather_id": {
+          "fa": "01",
+          "fb": "01"
+        },
+        "wind": "东风微风",
+        "week": "星期五",
+        "date": "20200925"
+      },
+      "day_20200926": {
+        "temperature": "16℃~25℃",
+        "weather": "多云",
+        "weather_id": {
+          "fa": "01",
+          "fb": "01"
+        },
+        "wind": "东风微风",
+        "week": "星期六",
+        "date": "20200926"
+      },
+      "day_20200927": {
+        "temperature": "16℃~25℃",
+        "weather": "多云",
+        "weather_id": {
+          "fa": "01",
+          "fb": "01"
+        },
+        "wind": "东风微风",
+        "week": "星期日",
+        "date": "20200927"
+      },
+      "day_20200928": {
+        "temperature": "18℃~26℃",
+        "weather": "多云",
+        "weather_id": {
+          "fa": "01",
+          "fb": "01"
+        },
+        "wind": "东风微风",
+        "week": "星期一",
+        "date": "20200928"
+      },
+      "day_20200929": {
+        "temperature": "18℃~23℃",
+        "weather": "阴",
+        "weather_id": {
+          "fa": "02",
+          "fb": "02"
+        },
+        "wind": "东风微风",
+        "week": "星期二",
+        "date": "20200929"
+      },
+      "day_20200930": {
+        "temperature": "16℃~25℃",
+        "weather": "多云",
+        "weather_id": {
+          "fa": "01",
+          "fb": "01"
+        },
+        "wind": "东风微风",
+        "week": "星期三",
+        "date": "20200930"
+      },
+      "day_20201001": {
+        "temperature": "16℃~25℃",
+        "weather": "多云",
+        "weather_id": {
+          "fa": "01",
+          "fb": "01"
+        },
+        "wind": "东风微风",
+        "week": "星期四",
+        "date": "20201001"
+      }
+    }
+  },
+  "error_code": 0
+}

@@ -12,6 +12,7 @@
     <modules>
         <module>java-login</module>
         <module>spring</module>
+        <module>redis</module>
     </modules>
 
 </project>

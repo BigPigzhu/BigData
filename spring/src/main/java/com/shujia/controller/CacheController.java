@@ -2,6 +2,7 @@ package com.shujia.controller;
 
 
 import com.shujia.bean.Student;
+import com.shujia.bean.SumScore;
 import com.shujia.service.CacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,5 +28,18 @@ public class CacheController {
 
     }
 
+    /**
+     * 通过学号查询学生总分
+     *
+     */
+
+    @GetMapping("/querySumScoreById")
+    public SumScore querySumScoreById(String id) {
+
+        SumScore sumScore = cacheService.querySumScoreBuId(id);
+
+        return sumScore;
+
+    }
 
 }

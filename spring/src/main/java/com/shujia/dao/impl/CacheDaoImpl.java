@@ -1,6 +1,7 @@
 package com.shujia.dao.impl;
 
 import com.shujia.bean.Student;
+import com.shujia.bean.SumScore;
 import com.shujia.dao.CacheDao;
 import com.shujia.util.JDBCUtil;
 import org.springframework.stereotype.Component;
@@ -52,4 +53,43 @@ public class CacheDaoImpl implements CacheDao {
 
         return student;
     }
+
+    /**
+     * 通过学号查询学生的总分
+     */
+
+    @Override
+    public SumScore querySumSocreById(String id) {
+
+        SumScore sumScore1 = new SumScore();
+
+        // 获取jdbc链接
+        Connection con = JDBCUtil.getConnection();
+
+        try {
+
+            PreparedStatement stat = con.prepareStatement("select sum(sco) as sumScore from score where stu_id=?");
+
+            stat.setString(1, id);
+
+            ResultSet resultSet = stat.executeQuery();
+
+            if (resultSet.next()) {
+                int sumScore = resultSet.getInt("sumScore");
+                sumScore1.setId(id);
+
+                sumScore1.setSumSocre(sumScore);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return sumScore1;
+
+
+
+    }
+
+
 }

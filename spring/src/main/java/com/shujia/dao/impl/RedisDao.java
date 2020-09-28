@@ -1,6 +1,7 @@
 package com.shujia.dao.impl;
 
 import com.shujia.bean.Student;
+import com.shujia.bean.SumScore;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 
@@ -39,6 +40,24 @@ public class RedisDao {
     }
 
     /**
+     * 通过学号查询学生总分
+     */
+
+    public Integer querySumScoreByKey(String key) {
+        String s = jedis.get(key);
+
+        if (s == null) {
+            return null;
+        }
+
+        int sumScore = Integer.parseInt(s);
+
+        return sumScore;
+
+    }
+
+
+    /**
      * 保存一条数据
      */
 
@@ -48,6 +67,11 @@ public class RedisDao {
         String line = student.getId() + "," + student.getName() + "," + student.getAge() + "," + student.getGender() + "," + student.getClazz();
 
         jedis.set(key, line);
+    }
+
+    public void saveSumScore(String key, Integer sumScore) {
+
+        jedis.set(key, sumScore.toString());
     }
 
 

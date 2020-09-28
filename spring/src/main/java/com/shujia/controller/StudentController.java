@@ -2,6 +2,7 @@ package com.shujia.controller;
 
 
 import com.shujia.bean.Student;
+import com.shujia.bean.SumScore;
 import com.shujia.util.JDBCUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -101,6 +102,9 @@ public class StudentController {
 
         return null;
     }
+
+
+
 
 
 }

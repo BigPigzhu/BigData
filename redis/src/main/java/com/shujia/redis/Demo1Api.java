@@ -68,6 +68,35 @@ public class Demo1Api {
 
     }
 
+
+    /**
+     * 将学生表保存到redis中  用hashmap结构
+     */
+
+    @Test
+    public void putAll() throws Exception {
+        FileReader fileReader = new FileReader("data/students.txt");
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+        String line;
+
+        while ((line = bufferedReader.readLine()) != null) {
+            String[] split = line.split(",");
+            String id = split[0];
+            String name = split[1];
+            String age = split[2];
+            String gender = split[3];
+            String clazz = split[4];
+
+
+            jedis.hset("student:" + id, "id", id);
+            jedis.hset("student:" + id, "name", name);
+            jedis.hset("student:" + id, "age", age);
+            jedis.hset("student:" + id, "gender", gender);
+            jedis.hset("student:" + id, "clazz", clazz);
+        }
+    }
+
+
     @Test
     public void get() {
 

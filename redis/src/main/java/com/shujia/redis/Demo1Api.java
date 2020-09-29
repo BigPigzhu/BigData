@@ -17,6 +17,9 @@ public class Demo1Api {
     public void init() {
         //创建链接
         jedis = new Jedis("master", 6379);
+
+        // 指定密码
+        jedis.auth("shujia");
     }
 
     @Test

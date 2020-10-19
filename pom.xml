@@ -13,6 +13,7 @@
         <module>java-login</module>
         <module>spring</module>
         <module>redis</module>
+        <module>zookeeper</module>
     </modules>
 
 </project>

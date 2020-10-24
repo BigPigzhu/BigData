@@ -31,7 +31,7 @@ public class Demo3DianXin {
         Connection connection = ConnectionFactory.createConnection(configuration);
 
         //获取表对象
-        Table table = connection.getTable(TableName.valueOf("dianxin"));
+        Table table = connection.getTable(TableName.valueOf("dianxin3"));
 
 
         FileReader fileReader = new FileReader("C:\\Users\\qx\\Desktop\\DIANXIN.csv");

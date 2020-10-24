@@ -111,7 +111,7 @@ public class Demo2Test {
     public void putStudent() throws Exception {
 
         //create 'student','info'
-        Table table = connection.getTable(TableName.valueOf("student"));
+        Table table = connection.getTable(TableName.valueOf("student1"));
 
 
         //读取本地学生数据

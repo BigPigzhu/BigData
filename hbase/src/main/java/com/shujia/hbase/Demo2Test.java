@@ -47,14 +47,14 @@ public class Demo2Test {
         Admin admin = connection.getAdmin();
 
         //创建表描述对象
-        HTableDescriptor descriptor = new HTableDescriptor(TableName.valueOf("test2"));
+        HTableDescriptor descriptor = new HTableDescriptor(TableName.valueOf("STUDENT"));
 
         //增加列簇
         HColumnDescriptor hColumnDescriptor = new HColumnDescriptor("info".getBytes());
 
         //可以设置列簇的属性
         //hColumnDescriptor.setTimeToLive(5);
-        hColumnDescriptor.setVersions(1, 10);
+        //hColumnDescriptor.setVersions(1, 10);
 
         descriptor.addFamily(hColumnDescriptor);
 
@@ -111,7 +111,7 @@ public class Demo2Test {
     public void putStudent() throws Exception {
 
         //create 'student','info'
-        Table table = connection.getTable(TableName.valueOf("student1"));
+        Table table = connection.getTable(TableName.valueOf("STUDENT"));
 
 
         //读取本地学生数据

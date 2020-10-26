@@ -20,10 +20,10 @@ object Demo2Helloworld {
 
     //在scala中使用java类
     //scala自动通过等号右边推测出等号左边类型
-    val student = new Student("张三", 23)
+    val student = new StudentJava("张三", 23)
     
     //写上类型
-    val student1: Student = new Student("张三", 23)
+    val student1: StudentJava = new StudentJava("张三", 23)
 
     println(student)
 

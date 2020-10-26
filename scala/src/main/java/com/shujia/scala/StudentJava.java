@@ -1,18 +1,18 @@
 package com.shujia.scala;
 
-public class Student {
+public class StudentJava {
     private String name;
     private int age ;
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "StudentJava{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
     }
 
-    public Student(String name, int age) {
+    public StudentJava(String name, int age) {
         this.name = name;
         this.age = age;
     }

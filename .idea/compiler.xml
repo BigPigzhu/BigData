@@ -10,6 +10,7 @@
         <module name="hbase" />
         <module name="java-login" />
         <module name="redis" />
+        <module name="scala" />
         <module name="spring" />
         <module name="zookeeper" />
       </profile>

@@ -16,6 +16,7 @@
         <module>zookeeper</module>
         <module>hbase</module>
         <module>scala</module>
+        <module>hadoop</module>
     </modules>
 
 </project>

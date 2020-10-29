@@ -22,7 +22,7 @@ object Demo22Fanxin {
   }
 
   //2、泛型方法
-  //T 的类型有参数类型决定
+  //T 的类型由参数类型决定
   def print[T](s: T): Unit = {
 
     //如果使用强转 ，容易出错

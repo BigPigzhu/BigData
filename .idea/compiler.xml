@@ -12,6 +12,7 @@
         <module name="java-login" />
         <module name="redis" />
         <module name="scala" />
+        <module name="spark" />
         <module name="spring" />
         <module name="zookeeper" />
       </profile>

@@ -1,5 +1,6 @@
-import org.apache.spark.SparkContext
-import org.apache.spark.SparkConf
+package com.shujia.spark.core
+
+import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.rdd.RDD
 
 object Demo1WordCount {
@@ -25,6 +26,7 @@ object Demo1WordCount {
 
     //sprk上下文对象，spark 入口
     val sc: SparkContext = new SparkContext(conf)
+
 
 
     /**

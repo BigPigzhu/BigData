@@ -19,7 +19,9 @@ object Demo1WordCount {
     // local 本地测试运行
 
     //打包到集群运行的时候需要注释掉
-    //    conf.setMaster("local")
+    //默认单线程
+    //[8] 指定线程数
+    conf.setMaster("local")
 
     //sprk上下文对象，spark 入口
     val sc: SparkContext = new SparkContext(conf)
@@ -37,7 +39,7 @@ object Demo1WordCount {
     //将数据上传到hdfs
     //hadoop dfs -mkdir /data/words
     //hadoop dfs -put words.txt /data/words
-    val lines: RDD[String] = sc.textFile("/data/words/")
+    val lines: RDD[String] = sc.textFile("spark/data/words/", 5)
 
 
 
@@ -45,9 +47,9 @@ object Demo1WordCount {
 
     val words: RDD[String] = lines.flatMap(_.split(","))
 
-
     //3、将数据转换成keyvalue格式
     val kv: RDD[(String, Int)] = words.map(word => (word, 1))
+
 
 
 
@@ -59,7 +61,7 @@ object Demo1WordCount {
       *
       */
 
-    val counts: RDD[(String, Int)] = kv.reduceByKey((x, y) => x + y)
+    val counts: RDD[(String, Int)] = kv.reduceByKey((x, y) => x + y, 3)
 
 
     //整理数据格式
@@ -68,7 +70,7 @@ object Demo1WordCount {
 
     //将数据保存到文件
 
-    result.saveAsTextFile("/data/out5")
+    result.saveAsTextFile("spark/data/out5")
 
 
     /**

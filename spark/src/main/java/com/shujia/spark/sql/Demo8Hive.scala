@@ -30,5 +30,10 @@ object Demo8Hive {
     val df: DataFrame = spark.table("student")
 
     df.show()
+
+    /**
+      * spark-submit --master yarn-client --class com.shujia.spark.sql.Demo8Hive spark-1.0.jar
+      *
+      */
   }
 }

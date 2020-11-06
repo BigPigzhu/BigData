@@ -23,6 +23,10 @@ object Demo9Burk {
       .load("spark/data/burks.txt")
 
 
+    //对多次使用df进行缓存
+    burk.cache()
+
+
     //行数
     //    burk.show(1000)
 
@@ -84,6 +88,21 @@ object Demo9Burk {
     burk
       .select($"burk", $"year", explode(map1) as Array("month", "pic")) //列转行
       .select($"burk", $"year", $"month", $"pic", sum($"pic") over Window.partitionBy($"burk", $"year").orderBy($"month") as "sum_pic")
+      .show()
+
+
+    /**
+      *
+      * 2、统计每个公司当月比上年同期增长率
+      * 公司代码,年度,月度,增长率（当月收入/上年当月收入 - 1）
+      *
+      */
+
+    burk
+      .select($"burk", $"year", explode(map1) as Array("month", "pic")) //列转行
+      .select($"burk", $"year", $"month", $"pic", lag($"pic", 1, 0.0) over Window.partitionBy($"burk", $"month").orderBy($"year") as "last_pic")
+      .select($"burk", $"year", $"month", $"pic", $"pic" / $"last_pic" - 1 as "f")
+      .select($"burk", $"year", $"month", $"pic", round(coalesce($"f", expr("0.0")), 6) as "f")
       .show()
 
   }

@@ -85,7 +85,7 @@ object Demo10Stu {
 
 
     //列传行
-    result
+    result.select()
       .select($"name", explode(map(expr("`数学`"), $"数学", expr("`英语`"), $"英语")) as Array("cou", "score"))
       .show()
 

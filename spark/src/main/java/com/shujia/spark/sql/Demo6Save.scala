@@ -11,6 +11,7 @@ object Demo6Save {
       .config("spark.sql.shuffle.partitions", 2)
       .getOrCreate()
 
+
     import spark.implicits._
 
     val df: DataFrame = spark

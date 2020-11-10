@@ -3,7 +3,7 @@ package com.shujia.spark.mllib
 import org.apache.spark.ml.linalg.Vectors
 import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 
-object Demo4Image {
+object Demo4ImageFeatures {
 
   def main(args: Array[String]): Unit = {
 

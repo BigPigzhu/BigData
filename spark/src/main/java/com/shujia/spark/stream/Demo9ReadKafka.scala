@@ -1,6 +1,6 @@
 package com.shujia.spark.stream
 
-import org.apache.spark.sql.streaming.OutputMode
+import org.apache.spark.sql.streaming.{DataStreamReader, OutputMode}
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object Demo9ReadKafka {

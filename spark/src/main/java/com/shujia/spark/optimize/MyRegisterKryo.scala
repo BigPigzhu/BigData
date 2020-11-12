@@ -10,6 +10,7 @@ class MyRegisterKryo extends KryoRegistrator {
     //注册之后student类序列化的时候就会使用kryo
     //classOf 获取类对象
     kryo.register(classOf[Student])
+    kryo.register(classOf[Int])
     kryo.register(classOf[String])
     //可以同时注册多个
     //    kryo.register()

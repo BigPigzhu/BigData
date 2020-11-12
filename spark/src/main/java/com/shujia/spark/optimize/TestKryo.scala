@@ -24,7 +24,7 @@ object TestKryo {
       //序列化方式
       .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
       //指定注册序列化的类，自定义
-      .set("spark.kryo.registrator", "com.shujia.optimize.MyRegisterKryo")
+      .set("spark.kryo.registrator", "com.shujia.spark.optimize.MyRegisterKryo")
 
     val sc: SparkContext = new SparkContext(conf)
 

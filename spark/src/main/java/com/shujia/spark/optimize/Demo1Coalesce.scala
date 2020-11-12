@@ -23,12 +23,12 @@ object Demo1Coalesce {
     val sc: SparkContext = new SparkContext(conf)
 
     //产生小文件
-    sc
-      .textFile("spark/data/students.txt")
-
-      //重分区   会产生shuffle
-      .repartition(2)
-    //.saveAsTextFile("spark/data/repartition")
+    //    sc
+    //      .textFile("spark/data/students.txt")
+    //
+    //      //重分区   会产生shuffle
+    //      .repartition(2)
+    //      .saveAsTextFile("spark/data/repartition")
 
 
     //数据里面由很多小文件，导致rdd分区很多，每隔分区数据量很小
@@ -46,8 +46,16 @@ object Demo1Coalesce {
 
 
     /**
-      * 增啊分区必须产生shuffle
+      * 增加分区必须产生shuffle
       * 减少分区的时候可以不产生shuflle
+      */
+
+    /**
+      * 合并小文件
+      *
+      * 保证每一个task处理的数据量在100M - 1G 左右
+      *
+      *
       */
 
     //减少分区的时候可以不产生shuflle

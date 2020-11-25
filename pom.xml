@@ -18,6 +18,7 @@
         <module>scala</module>
         <module>hadoop</module>
         <module>spark</module>
+        <module>flink</module>
     </modules>
 
 </project>

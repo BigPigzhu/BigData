@@ -13,7 +13,7 @@ object Demo2StreamWC {
     val env: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
 
     //并行度
-    env.setParallelism(1)
+    //env.setParallelism(2)
 
     //读取数据
     //nc -lk 8888

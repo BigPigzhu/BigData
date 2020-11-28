@@ -4,8 +4,7 @@ import org.apache.flink.streaming.api.scala._
 import org.apache.flink.table.api._
 import org.apache.flink.table.api.bridge.scala._
 import org.apache.flink.types.Row
-
-object Demo4ProTImeTopN {
+object Demo5EventTImeTopN {
   def main(args: Array[String]): Unit = {
 
     val fsSettings: EnvironmentSettings = EnvironmentSettings
@@ -16,32 +15,36 @@ object Demo4ProTImeTopN {
 
     val fsEnv: StreamExecutionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment
 
+    fsEnv.setParallelism(1)
+
     val fsTableEnv: StreamTableEnvironment = StreamTableEnvironment.create(fsEnv, fsSettings)
 
 
 
     /*
-itemid,c
-001,1
-001,1
-001,1
-002,1
-002,1
-003,1
-003,1
-003,1
-003,1
-001,1
-001,1
-001,1
-002,1
-003,1
-001,1
-002,1
-003,1
+001,20180503152101
+001,20180503152102
+002,20180503152101
+002,20180503152102
+002,20180503152103
+003,20180503152101
+003,20180503152102
+003,20180503152103
+003,20180503152104
+001,20180503152130
  */
     /**
-      * kafka-console-producer.sh --broker-list master:9092,node1:9092,node2:9092 --topic items
+      * kafka-console-producer.sh --broker-list master:9092,node1:9092,node2:9092 --topic items_event
+      *
+      */
+
+    /**
+      * ts AS TO_TIMESTAMP(time,'yyyyMMddHHmmss')
+      * 使用事件事件
+      *
+      * WATERMARK FOR ts AS ts - INTERVAL '5' SECOND
+      *
+      *设置数据最大延迟几秒
       *
       */
 
@@ -49,19 +52,26 @@ itemid,c
       """
         |CREATE TABLE items (
         | itemId STRING,
-        | c bigint ,
-        | ts AS PROCTIME()
+        | t STRING,
+        | ts AS TO_TIMESTAMP(t,'yyyyMMddHHmmss'),
+        | WATERMARK FOR ts AS ts - INTERVAL '5' SECOND
         |) WITH (
         | 'connector' = 'kafka',
-        | 'topic' = 'items',
+        | 'topic' = 'items_event',
         | 'properties.bootstrap.servers' = 'master:9092,node1:9092,node2:9092',
-        | 'properties.group.id' = 'testGroup',
+        | 'properties.group.id' = 'testGroup1',
         | 'format' = 'csv',
-        | 'scan.startup.mode' = 'earliest-offset'
+        | 'csv.ignore-parse-errors' = 'true',
+        | 'scan.startup.mode' = 'latest-offset'
         |)
         |
         |
       """.stripMargin)
+
+/*    val table: Table = fsTableEnv.from("items")
+    table.printSchema()
+    table.toAppendStream[Row].print()
+    fsEnv.execute()*/
 
     fsTableEnv.executeSql(
       """
@@ -89,7 +99,7 @@ itemid,c
       *
       */
 
-  fsTableEnv.executeSql(
+    fsTableEnv.executeSql(
       """
         |insert into topn
         |select itemId,c,end_time,r from

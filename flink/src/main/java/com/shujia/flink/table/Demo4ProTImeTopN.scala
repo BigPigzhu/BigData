@@ -105,5 +105,14 @@ itemid,c
       """.stripMargin)
 
 
+    /**
+      *
+      * flink sql 运行方式
+      * 1、 可以直接将sql复制到sql-client中运行
+      * 2、 将项目打包到集群中运行
+      * flink run -c com.shujia.flink.table.Demo4ProTImeTopN -p 1 flink-1.0.jar
+      *
+      */
+
   }
 }

@@ -17,7 +17,7 @@ object Demo2StreamWC {
 
     //读取数据
     //nc -lk 8888
-    val linesDS: DataStream[String] = env.socketTextStream("master", 8888)
+    val linesDS: DataStream[String] = env.socketTextStream("master", 7777)
 
 
     val countDS: DataStream[(String, Int)] = linesDS
